@@ -1,0 +1,36 @@
+/* Exercise 3: HOL - CSS Styling for Score Calculator */
+.score-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.score-card {
+  background: rgba(255,255,255,0.15);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.score-card h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.5em;
+}
+
+.score-card p {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+.average-score {
+  font-size: 2em;
+  font-weight: bold;
+  color: #ffd700;
+  text-align: center;
+  margin-top: 15px;
+}

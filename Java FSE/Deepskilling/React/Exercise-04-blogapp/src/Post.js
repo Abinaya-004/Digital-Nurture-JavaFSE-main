@@ -1,0 +1,11 @@
+// Exercise 4: HOL - Component Lifecycle Methods
+// Post class model
+class Post {
+  constructor(id, title, body) {
+    this.id = id;
+    this.title = title;
+    this.body = body;
+  }
+}
+
+export default Post;
