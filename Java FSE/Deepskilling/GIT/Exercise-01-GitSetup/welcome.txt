@@ -1,0 +1,6 @@
+Welcome to GitDemo repository
+
+This file was added as part of Exercise 01 - Git Setup, Configuration & First Commit.
+
+Author: [Your Name]
+Date: 2026-07-24

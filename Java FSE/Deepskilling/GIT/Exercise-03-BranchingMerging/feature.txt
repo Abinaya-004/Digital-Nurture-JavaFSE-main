@@ -1,0 +1,12 @@
+Feature file created on GitNewBranch
+
+This file was added as part of Exercise 03 - Branching and Merging.
+
+Branch: GitNewBranch
+Merged into: master
+Date: 2026-07-24
+
+Content:
+- Added new feature developed in the GitNewBranch
+- This demonstrates how branch-based development works
+- After review, this was merged back into master

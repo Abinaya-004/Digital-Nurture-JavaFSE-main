@@ -1,0 +1,10 @@
+# Ignore all .log files
+*.log
+
+# Ignore the log directory and its contents
+log/
+
+# Ignore temp files
+*.tmp
+*.bak
+*.swp

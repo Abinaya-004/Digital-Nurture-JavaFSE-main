@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  hello.xml - Exercise 04: Conflict Resolution
+  
+  This file was intentionally created with conflicting content
+  on two different branches (master and GitWork) to demonstrate
+  how Git handles merge conflicts.
+  
+  MASTER version content (before merge):
+    <message>Hello from Master Branch!</message>
+    <author>Master Developer</author>
+    <version>2.0</version>
+  
+  GITWORK Branch version content (before merge):
+    <message>Hello from GitWork Branch!</message>
+    <author>Branch Developer</author>
+    <version>1.0</version>
+  
+  RESOLVED (merged) version below:
+-->
+<hello>
+    <message>Hello from Merged Result!</message>
+    <author>Both Developers</author>
+    <version>2.0</version>
+    <branch-info>
+        <master-message>Hello from Master Branch!</master-message>
+        <branch-message>Hello from GitWork Branch!</branch-message>
+    </branch-info>
+</hello>
