@@ -1,0 +1,15 @@
+# Student Course Portal — Angular Project Notes
+# Exercise 01 Task: Explain each generated file
+
+angular.json        → Workspace configuration: build options, file replacements, budgets, lint/test targets for CLI commands
+tsconfig.json       → Root TypeScript config: base compiler options (target, strict, paths) inherited by all tsconfig.*.json files
+tsconfig.app.json   → App-specific TypeScript config: extends root, includes only src/ files for the browser build
+package.json        → NPM manifest: lists all runtime dependencies (Angular, RxJS) and devDependencies (CLI, Karma, Jasmine)
+src/main.ts         → Application entry point: bootstraps the root AppComponent (standalone) or AppModule using bootstrapApplication / platformBrowserDynamic
+src/app/app.config.ts → Standalone app configuration: provides router, HttpClient, NgRx store, effects, and other app-wide providers
+src/app/app.component.ts → Root component: hosts <app-header> and <router-outlet>; the shell that wraps every page
+src/index.html      → Host HTML page: contains <app-root> where Angular mounts the entire SPA; links favicon
+
+# Build Budget Notes (angular.json → architect > build > configurations > production > budgets)
+# maximumWarning  → Emits a warning when the bundle size exceeds this threshold (e.g. 500kB) — a signal to optimise
+# maximumError    → Fails the build when the bundle size exceeds this threshold (e.g. 1MB) — enforces size discipline in CI/CD pipelines

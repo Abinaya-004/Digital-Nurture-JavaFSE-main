@@ -1,0 +1,45 @@
+<!-- Exercise 02 & 03 — CourseCardComponent Template -->
+<!-- @Input, @Output, ngClass, ngStyle, *ngSwitch, custom pipe, custom directive -->
+
+<div class="course-card"
+     [ngClass]="cardClasses"
+     [ngStyle]="{ 'border-left': '4px solid ' + gradeStatusColor }"
+     appHighlight>
+
+  <div class="card-header">
+    <div>
+      <h3 class="course-name">{{ course.name }}</h3>
+      <span class="course-code">{{ course.code }}</span>
+    </div>
+
+    <!-- Exercise 03 — Step 27: *ngSwitch for grade status badge -->
+    <span [ngSwitch]="course.gradeStatus">
+      <span *ngSwitchCase="'passed'"  class="badge badge-passed">✓ Passed</span>
+      <span *ngSwitchCase="'failed'"  class="badge badge-failed">✗ Failed</span>
+      <span *ngSwitchDefault          class="badge badge-pending">⏳ Pending</span>
+    </span>
+  </div>
+
+  <p class="course-credits">
+    <!-- Exercise 03 — Step 36: Custom pipe usage -->
+    {{ course.credits | creditLabel }}
+  </p>
+
+  <!-- Exercise 03 — Step 31: Toggle expanded content -->
+  <div *ngIf="isExpanded" class="card-detail">
+    <p>Instructor: {{ course.instructor ?? 'TBA' }}</p>
+    <p>{{ course.description ?? 'No description available.' }}</p>
+  </div>
+
+  <div class="card-footer">
+    <button class="btn btn-secondary" (click)="toggleExpanded()">
+      {{ isExpanded ? 'Hide Details' : 'Show Details' }}
+    </button>
+
+    <!-- Exercise 02 — Step 21: (click) emits to parent via @Output -->
+    <!-- Exercise 06 — Toggle Enroll / Unenroll using EnrollmentService -->
+    <button class="btn btn-primary" (click)="onEnrollClick()">
+      {{ enrollmentService.isEnrolled(course.id) ? 'Unenroll' : 'Enroll' }}
+    </button>
+  </div>
+</div>

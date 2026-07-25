@@ -1,0 +1,20 @@
+/* Exercise 02, 03 — CourseCard Styles */
+.course-card {
+  background: #fff; border: 1px solid #e2e8f0;
+  border-radius: .75rem; padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  transition: box-shadow .2s, transform .2s;
+}
+.course-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.12); transform: translateY(-2px); }
+
+/* Exercise 03 — Step 29: ngClass states */
+.course-card.card--enrolled { background: #f0fdf4; }
+.course-card.card--full     { opacity: .85; }
+.course-card.expanded       { min-height: 200px; }
+
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: .75rem; }
+.course-name { font-size: 1rem; font-weight: 600; color: #1e293b; }
+.course-code { font-size: .75rem; color: #64748b; font-family: monospace; }
+.course-credits { font-size: .875rem; color: #475569; margin-bottom: .75rem; }
+.card-detail  { padding: .75rem; background: #f8fafc; border-radius: .5rem; margin-bottom: .75rem; font-size: .85rem; color: #475569; }
+.card-footer  { display: flex; gap: .5rem; justify-content: flex-end; }

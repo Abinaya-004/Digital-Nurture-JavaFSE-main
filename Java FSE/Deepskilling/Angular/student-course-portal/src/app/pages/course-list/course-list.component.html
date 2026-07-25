@@ -1,0 +1,43 @@
+<!-- Exercise 03 — CourseListComponent Template -->
+<!-- *ngIf loading, *ngFor with trackBy, *ngSwitch, #noCourses else block -->
+
+<div class="course-list-page">
+  <h1 class="page-title">Course Catalogue</h1>
+
+  <!-- Exercise 03 — Step 25: *ngIf for loading spinner -->
+  <div *ngIf="isLoading; else courseGrid" class="loading-box">
+    <div class="spinner"></div>
+    <p>Loading courses...</p>
+  </div>
+
+  <!-- Exercise 03 — Step 28: else block with ng-template -->
+  <ng-template #courseGrid>
+
+    <!-- Exercise 03 — Step 28: No courses template -->
+    <ng-container *ngIf="courses.length > 0; else noCourses">
+      <!-- Exercise 02 — Step 24: Show selected course ID -->
+      <p *ngIf="selectedCourseId" class="selected-info">
+        Selected course ID: <strong>{{ selectedCourseId }}</strong>
+      </p>
+
+      <div class="course-grid">
+        <!-- Exercise 02 — Step 22: *ngFor with @Input + @Output binding -->
+        <!-- Exercise 03 — Step 26: trackBy for performance -->
+        <app-course-card
+          *ngFor="let course of courses; let i = index; trackBy: trackByCourseId"
+          [course]="course"
+          (enrollRequested)="onEnroll($event)"
+          (click)="onCardClick(course.id)">
+        </app-course-card>
+      </div>
+    </ng-container>
+
+    <!-- Exercise 03 — Step 28: *ngIf else template -->
+    <ng-template #noCourses>
+      <div class="empty-state">
+        <p>📭 No courses available.</p>
+      </div>
+    </ng-template>
+
+  </ng-template>
+</div>

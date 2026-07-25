@@ -1,0 +1,43 @@
+<!-- Exercise 01 & 02 — HomeComponent Template -->
+<!-- Step 8: Welcome heading, description, stats row -->
+<!-- Exercise 02 — All four binding types demonstrated -->
+
+<div class="home-page">
+  <!-- Step 11: String interpolation {{ portalName }} -->
+  <h1 class="page-title">Welcome to {{ portalName }}</h1>
+  <p class="page-desc">Your one-stop portal to browse courses, manage enrollments and track your academic progress.</p>
+
+  <!-- Exercise 02 — Step 12 & 13: Property binding + Event binding -->
+  <div class="actions-row">
+    <button class="btn btn-primary"
+            [disabled]="!isPortalActive"
+            (click)="onEnrollClick()">
+      Enroll Now
+    </button>
+    <span *ngIf="message" class="action-msg">{{ message }}</span>
+  </div>
+
+  <!-- Exercise 02 — Step 14: Two-way binding with ngModel -->
+  <div class="search-box">
+    <label for="search">Search Courses</label>
+    <input id="search" type="text" [(ngModel)]="searchTerm" placeholder="Type to search...">
+    <!-- Live reflection of two-way binding -->
+    <p *ngIf="searchTerm" class="search-preview">Searching for: <strong>{{ searchTerm }}</strong></p>
+  </div>
+
+  <!-- Exercise 01 — Step 8: Stats row (hardcoded, updated live in HOL-06) -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <span class="stat-value">{{ coursesAvailable }}</span>
+      <span class="stat-label">Courses Available</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value">{{ enrolled }}</span>
+      <span class="stat-label">Enrolled</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value">{{ gpa }}</span>
+      <span class="stat-label">GPA</span>
+    </div>
+  </div>
+</div>

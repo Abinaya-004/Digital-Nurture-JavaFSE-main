@@ -1,0 +1,85 @@
+<!-- Exercise 04 — Template-Driven Enrollment Form -->
+<!-- Steps 39-47: ngForm, ngModel, built-in validators, error messages, submit/reset -->
+
+<div class="form-page">
+  <h1 class="page-title">Enrollment Request Form</h1>
+  <p class="page-desc">Template-Driven Form — Exercise 04</p>
+
+  <!-- Step 46: Success banner -->
+  <div class="success-banner" *ngIf="submitted">
+    ✅ Enrollment request submitted successfully!
+  </div>
+
+  <!-- Step 39: Form with #enrollForm template ref and (ngSubmit) -->
+  <form #enrollForm="ngForm" (ngSubmit)="onSubmit(enrollForm)" class="enroll-form" *ngIf="!submitted">
+
+    <!-- studentName — required, minlength=3 -->
+    <div class="form-group">
+      <label for="studentName">Student Name *</label>
+      <input id="studentName" type="text"
+             name="studentName"
+             [(ngModel)]="model.studentName"
+             #nameCtrl="ngModel"
+             required minlength="3"
+             placeholder="Enter your full name">
+      <!-- Step 44: Contextual error messages using ngModel reference -->
+      <span class="error-msg" *ngIf="nameCtrl.touched && nameCtrl.errors?.['required']">
+        Name is required.
+      </span>
+      <span class="error-msg" *ngIf="nameCtrl.touched && nameCtrl.errors?.['minlength']">
+        Name must be at least 3 characters.
+      </span>
+    </div>
+
+    <!-- studentEmail — required, email -->
+    <div class="form-group">
+      <label for="studentEmail">Email *</label>
+      <input id="studentEmail" type="email"
+             name="studentEmail"
+             [(ngModel)]="model.studentEmail"
+             #emailCtrl="ngModel"
+             required email
+             placeholder="student@example.com">
+      <span class="error-msg" *ngIf="emailCtrl.touched && emailCtrl.errors?.['required']">Email is required.</span>
+      <span class="error-msg" *ngIf="emailCtrl.touched && emailCtrl.errors?.['email']">Enter a valid email address.</span>
+    </div>
+
+    <!-- courseId — required -->
+    <div class="form-group">
+      <label for="courseId">Course ID *</label>
+      <input id="courseId" type="number"
+             name="courseId"
+             [(ngModel)]="model.courseId"
+             #courseCtrl="ngModel"
+             required placeholder="e.g. 101">
+      <span class="error-msg" *ngIf="courseCtrl.touched && courseCtrl.errors?.['required']">Course ID is required.</span>
+    </div>
+
+    <!-- preferredSemester — select -->
+    <div class="form-group">
+      <label for="semester">Preferred Semester *</label>
+      <select id="semester" name="preferredSemester" [(ngModel)]="model.preferredSemester" required>
+        <option value="Odd">Odd</option>
+        <option value="Even">Even</option>
+      </select>
+    </div>
+
+    <!-- agreeToTerms — checkbox -->
+    <div class="form-group checkbox-group">
+      <label>
+        <input type="checkbox" name="agreeToTerms" [(ngModel)]="model.agreeToTerms" required>
+        I agree to the terms and conditions *
+      </label>
+    </div>
+
+    <div class="form-actions">
+      <!-- Step 41: Submit disabled when form invalid -->
+      <button type="submit" class="btn btn-primary" [disabled]="enrollForm.invalid">Submit</button>
+      <!-- Step 47: Reset button -->
+      <button type="button" class="btn btn-secondary" (click)="onReset(enrollForm)">Reset</button>
+    </div>
+
+  </form>
+
+  <button *ngIf="submitted" class="btn btn-secondary" (click)="submitted = false">Submit Another</button>
+</div>

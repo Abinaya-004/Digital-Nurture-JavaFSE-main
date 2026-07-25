@@ -1,0 +1,16 @@
+{
+  "courses": [
+    { "id": 1, "name": "Data Structures",   "code": "CS101", "credits": 4, "gradeStatus": "passed",  "instructor": "Dr. Smith",  "description": "Arrays, linked lists, trees, graphs." },
+    { "id": 2, "name": "Database Systems",   "code": "CS202", "credits": 3, "gradeStatus": "pending", "instructor": "Prof. Kumar","description": "SQL, normalization, transactions." },
+    { "id": 3, "name": "Web Technologies",   "code": "CS303", "credits": 4, "gradeStatus": "failed",  "instructor": "Ms. Patel",  "description": "HTML, CSS, JavaScript, frameworks." },
+    { "id": 4, "name": "Operating Systems",  "code": "CS404", "credits": 3, "gradeStatus": "passed",  "instructor": "Dr. Jones",  "description": "Processes, memory, file systems." },
+    { "id": 5, "name": "Machine Learning",   "code": "CS505", "credits": 4, "gradeStatus": "pending", "instructor": "Dr. Lee",    "description": "Supervised/unsupervised learning, NNs." }
+  ],
+  "students": [
+    { "id": 1, "name": "Abinaya", "email": "abinaya@college.edu", "enrolledCourseIds": [1, 3], "gpa": 3.8 }
+  ],
+  "enrollments": [
+    { "id": 1, "studentId": 1, "courseId": 1 },
+    { "id": 2, "studentId": 1, "courseId": 3 }
+  ]
+}
